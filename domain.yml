@@ -3,21 +3,21 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
-- affirm
-- mood_great
-- inform
 - request_activity_form
-- supply_name
+- deny
+- mood_great
 - greet
+- supply_name
+- affirm
+- inform
 - goodbye
 - mood_unhappy
-- deny
 - bot_challenge
 entities:
 - ACTIVITY
 - PERSON
-- time
 - description_time
+- time
 slots:
   name:
     type: text
@@ -42,9 +42,8 @@ slots:
     type: text
     influence_conversation: false
     mappings:
-    - type: from_entity
-      entity: description_time
-
+    - type: custom
+      action: action_get_description_time
 responses:
   utter_greet:
   - text: Hey {name}! How are you?
@@ -71,6 +70,8 @@ responses:
   utter_activity_slots:
   - text: Great, you are going to {activity} at {description_time}.
 actions:
+- action_get_description_time
+- ask_activity
 - utter_activity_slots
 - utter_ask_activity
 - utter_ask_name
@@ -81,7 +82,6 @@ actions:
 - utter_greet
 - utter_happy
 - validate_activity_form
-- ask_activity
 forms:
   activity_form:
     required_slots:

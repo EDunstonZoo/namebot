@@ -42,6 +42,7 @@ nlu:
     - correct
     - absolutely
     - Yes thanks
+    - Yes
 - intent: deny
   examples: |
     - no
@@ -51,6 +52,7 @@ nlu:
     - don't like that
     - no way
     - not really
+    - Nothing
 - intent: mood_great
   examples: |
     - perfect
@@ -71,6 +73,7 @@ nlu:
     - Great thanks
     - great thanks
     - Very well thanks
+    - Amazing
 - intent: mood_unhappy
   examples: |
     - my day was horrible
@@ -105,23 +108,24 @@ nlu:
     - [Eric](PERSON)
     - Robert
     - [Drew](PERSON)
+    - Jacob
+    - My name is Eric
     - [Eric](PERSON)
 - intent: request_activity_form
   examples: |
-    - Yes, I am having a [pizza with Dan](ACTIVITY) at {time}.
+    - Yes, I am having a [pizza with Dan](ACTIVITY) at {description_time}{time}.
     - Yes, I have something planned.
     - I am having a [pizza with Dan](ACTIVITY)
+    - I am going to meet [with Dan](ACTIVITY) at 5pm
+    - I am going to have a [pizza with dan](ACTIVITY) [at 5 pm](description_time)
+    - [2 pm](description_time)
+    - I have a board [meeting](ACTIVITY) [at 5 pm](description_time)
+    - I would like to meet [Dan](ACTIVITY) at 4pm today
 - intent: inform
   examples: |
     - At {time}
-    - [Meeting with Paul](ACTIVITY) at {time}
+    - [Meeting with Paul](ACTIVITY) at {description_time}{time}
     - [See Michelle](ACTIVITY)
     - {time}
-    - {time}
-- regex: time
-  examples: |
-    - \d\d\d-\d-\d\dT\d\d:\d\d:\d\d\.\d\d\d\+\d\d:\d\d
-
-- regex: description_time
-  examples: |
-    - (?<=\[)(.*)(?=\]{"entity": "time")
+    - I have a board [meeting](ACTIVITY) at [2pm](description_time)
+    - [Board meeting](ACTIVITY)

@@ -156,3 +156,133 @@ stories:
   - intent: affirm
   - intent: goodbye
   - action: utter_goodbye
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_ask_name
+  - intent: supply_name
+    entities:
+    - PERSON: Robert
+  - slot_was_set:
+    - name: Robert
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+  - intent: request_activity_form
+    entities:
+    - ACTIVITY: pizza with dan
+    - description_time: at 5 pm
+    - time: '2022-02-16T17:00:00.000+01:00'
+  - action: activity_form
+  - active_loop: activity_form
+  - slot_was_set:
+    - requested_slot: time
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_ask_name
+  - intent: supply_name
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+  - action: utter_ask_activity
+  - intent: inform
+    entities:
+    - ACTIVITY: meeting
+    - time: '2022-02-16T14:00:00.000+01:00'
+    - description_time: 2pm
+  - action: activity_form
+  - active_loop: activity_form
+  - slot_was_set:
+    - requested_slot: time
+  - slot_was_set:
+    - time: '2022-02-16T14:00:00.000+01:00'
+  - slot_was_set:
+    - time: '2022-02-16T14:00:00.000+01:00'
+  - slot_was_set:
+    - requested_slot: activity
+  - intent: inform
+    entities:
+    - ACTIVITY: Board meeting
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_ask_name
+  - intent: supply_name
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+  - action: utter_ask_activity
+  - intent: request_activity_form
+    entities:
+    - time: '2022-02-16T17:00:00.000+01:00'
+    - ACTIVITY: meeting
+    - description_time: at 5 pm
+  - slot_was_set:
+    - activity: meeting
+  - slot_was_set:
+    - time: '2022-02-16T17:00:00.000+01:00'
+  - action: activity_form
+  - active_loop: activity_form
+  - slot_was_set:
+    - time: '2022-02-16T17:00:00.000+01:00'
+  - slot_was_set:
+    - activity: meeting
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_get_description_time
+  - slot_was_set:
+    - description_time: Feb 16 2022 05:00PM
+  - action: utter_activity_slots
+  - intent: affirm
+  - action: utter_happy
+  - action: utter_ask_activity
+  - intent: deny
+  - action: utter_goodbye
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_ask_name
+  - intent: supply_name
+    entities:
+    - PERSON: Eric
+    - PERSON: Eric
+  - slot_was_set:
+    - name: Eric
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+  - intent: request_activity_form
+    entities:
+    - PERSON: Dan
+    - time: '2022-02-16T16:00:00.000+01:00'
+    - ACTIVITY: Dan
+  - slot_was_set:
+    - name: Dan
+  - slot_was_set:
+    - activity: Dan
+  - slot_was_set:
+    - time: '2022-02-16T16:00:00.000+01:00'
+  - action: activity_form
+  - active_loop: activity_form
+  - slot_was_set:
+    - time: '2022-02-16T16:00:00.000+01:00'
+  - slot_was_set:
+    - activity: Dan
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_get_description_time
+  - slot_was_set:
+    - description_time: Feb 16 2022 04:00PM
+  - action: utter_activity_slots
+  - intent: mood_great
+  - action: utter_happy
+  - action: utter_ask_activity
+  - intent: deny
+  - action: utter_goodbye

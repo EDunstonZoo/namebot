@@ -37,6 +37,7 @@ rules:
   - slot_was_set: 
     - requested_slot: null
   # - action: utter_submit
+  - action: action_get_description_time
   - action: utter_activity_slots
 
 
