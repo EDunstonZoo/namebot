@@ -3,24 +3,48 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
+- affirm
 - mood_great
+- inform
+- request_activity_form
 - supply_name
 - greet
 - goodbye
 - mood_unhappy
-- affirm
 - deny
 - bot_challenge
 entities:
+- ACTIVITY
 - PERSON
+- time
+- description_time
 slots:
   name:
     type: text
-    initial_value: "Zorro the Incognito"
+    initial_value: Zorro the Incognito
     influence_conversation: false
     mappings:
     - type: from_entity
       entity: PERSON
+  activity:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: ACTIVITY
+  time:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: time
+  description_time:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: description_time
+
 responses:
   utter_greet:
   - text: Hey {name}! How are you?
@@ -38,10 +62,28 @@ responses:
   - text: I am a bot, powered by Rasa.
   utter_ask_name:
   - text: What do they call you?
+  utter_ask_activity:
+  - text: What do you have planned?
+  ask_activity:
+  - text: What do you have planned?
+  utter_ask_time:
+  - text: At what time is your appointment?
+  utter_activity_slots:
+  - text: Great, you are going to {activity} at {description_time}.
 actions:
+- utter_activity_slots
+- utter_ask_activity
 - utter_ask_name
+- utter_ask_time
 - utter_cheer_up
 - utter_did_that_help
 - utter_goodbye
 - utter_greet
 - utter_happy
+- validate_activity_form
+- ask_activity
+forms:
+  activity_form:
+    required_slots:
+    - time
+    - activity

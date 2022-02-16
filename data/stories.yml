@@ -17,6 +17,8 @@ stories:
   - action: utter_greet
   - intent: mood_great
   - action: utter_happy
+  - action: utter_ask_activity
+
 
 - story: sad path 1
   steps:
@@ -29,6 +31,8 @@ stories:
   - action: utter_did_that_help
   - intent: affirm
   - action: utter_happy
+  - action: utter_ask_activity
+
 
 - story: sad path 2
   steps:
@@ -105,3 +109,50 @@ stories:
   - action: utter_greet
   - intent: mood_great
   - action: utter_happy
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_ask_name
+  - intent: supply_name
+    entities:
+    - PERSON: Eric
+    - PERSON: Eric
+  - slot_was_set:
+    - name: Eric
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+  - action: utter_ask_activity
+  - intent: request_activity_form
+    entities:
+    - PERSON: Dan
+    - ACTIVITY: pizza with Dan
+  - slot_was_set:
+    - name: Dan
+  - slot_was_set:
+    - activity: pizza with Dan
+  - action: activity_form
+  - active_loop: activity_form
+  - slot_was_set:
+    - activity: pizza with Dan
+  - slot_was_set:
+    - requested_slot: time
+  - intent: inform
+    entities:
+    - time: 1pm
+  - action: utter_ask_time
+  - intent: inform
+    entities:
+    - time: 1pm
+  - action: utter_ask_time
+  - intent: inform
+    entities:
+    - time: 5pm
+  - slot_was_set:
+    - time: 5pm
+  - action: utter_activity_slots
+  - action: utter_did_that_help
+  - intent: affirm
+  - intent: goodbye
+  - action: utter_goodbye

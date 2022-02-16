@@ -14,3 +14,29 @@ rules:
   steps:
   - intent: bot_challenge
   - action: utter_iamabot
+
+- rule: Activate Activity Form
+  steps:
+  - intent: request_activity_form
+  - action: activity_form
+  - active_loop: activity_form
+
+- rule: Activate Activity Form
+  steps:
+  - action: utter_ask_activity
+  - intent: affirm
+  - action: activity_form
+  - active_loop: activity_form
+
+- rule: Submit Activity Form
+  condition:
+  - active_loop: activtity_form
+  steps: 
+  - action: activity_form
+  - active_loop: null
+  - slot_was_set: 
+    - requested_slot: null
+  # - action: utter_submit
+  - action: utter_activity_slots
+
+

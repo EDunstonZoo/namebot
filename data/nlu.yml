@@ -40,6 +40,8 @@ nlu:
     - of course
     - that sounds good
     - correct
+    - absolutely
+    - Yes thanks
 - intent: deny
   examples: |
     - no
@@ -103,3 +105,23 @@ nlu:
     - [Eric](PERSON)
     - Robert
     - [Drew](PERSON)
+    - [Eric](PERSON)
+- intent: request_activity_form
+  examples: |
+    - Yes, I am having a [pizza with Dan](ACTIVITY) at {time}.
+    - Yes, I have something planned.
+    - I am having a [pizza with Dan](ACTIVITY)
+- intent: inform
+  examples: |
+    - At {time}
+    - [Meeting with Paul](ACTIVITY) at {time}
+    - [See Michelle](ACTIVITY)
+    - {time}
+    - {time}
+- regex: time
+  examples: |
+    - \d\d\d-\d-\d\dT\d\d:\d\d:\d\d\.\d\d\d\+\d\d:\d\d
+
+- regex: description_time
+  examples: |
+    - (?<=\[)(.*)(?=\]{"entity": "time")
