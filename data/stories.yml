@@ -326,3 +326,40 @@ stories:
   - action: utter_activity_slots
   - intent: mood_great
   - action: utter_happy
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_ask_name
+  - intent: supply_name
+    entities:
+    - PERSON: Roberto
+  - slot_was_set:
+    - name: Roberto
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+  - action: utter_ask_activity
+  - intent: inform
+    entities:
+    - time: '2022-02-19T17:00:00.000+01:00'
+    - ACTIVITY: meeting
+  - slot_was_set:
+    - activity: meeting
+  - slot_was_set:
+    - time: '2022-02-19T17:00:00.000+01:00'
+  - action: activity_form
+  - active_loop: activity_form
+  - slot_was_set:
+    - time: '2022-02-19T17:00:00.000+01:00'
+  - slot_was_set:
+    - activity: meeting
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_get_description_time
+  - slot_was_set:
+    - description_time: Feb 19 2022 05:00PM
+  - action: utter_activity_slots
+  - intent: goodbye
+  - action: utter_goodbye

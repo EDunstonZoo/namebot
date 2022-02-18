@@ -4,13 +4,13 @@ session_config:
   carry_over_slots_to_new_session: true
 intents:
 - greet
-- supply_name
-- request_activity_form
 - mood_great
+- supply_name
+- goodbye
+- inform
+- request_activity_form
 - deny
 - affirm
-- inform
-- goodbye
 - mood_unhappy
 - bot_challenge
 entities:

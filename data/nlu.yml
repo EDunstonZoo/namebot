@@ -110,7 +110,7 @@ nlu:
     - [Drew](PERSON)
     - Jacob
     - My name is Eric
-    - [Eric](PERSON)
+    - Roberto
 - intent: request_activity_form
   examples: |
     - Yes, I am having a [pizza with Dan](ACTIVITY) at {description_time}{time}.
@@ -130,3 +130,4 @@ nlu:
     - {time}
     - I have a board [meeting](ACTIVITY) at [2pm](description_time)
     - [Board meeting](ACTIVITY)
+    - I have a board [meeting](ACTIVITY) at 5pm tomorrow
