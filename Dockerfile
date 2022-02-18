@@ -17,3 +17,5 @@ ENTRYPOINT ["rasa"]
 
 # command to run when container is called
 CMD ["run", "--enable-api", "--port", "8080"]
+
+

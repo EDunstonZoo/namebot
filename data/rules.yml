@@ -1,5 +1,4 @@
 version: "3.0"
-
 rules:
 - rule: fill up the name
   steps:
@@ -18,13 +17,6 @@ rules:
 - rule: Activate Activity Form
   steps:
   - intent: request_activity_form
-  - action: activity_form
-  - active_loop: activity_form
-
-- rule: Activate Activity Form
-  steps:
-  - action: utter_ask_activity
-  - intent: affirm
   - action: activity_form
   - active_loop: activity_form
 

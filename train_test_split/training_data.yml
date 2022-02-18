@@ -1,0 +1,109 @@
+version: "3.0"
+nlu:
+- intent: bot_challenge
+  examples: |
+    - am I talking to a bot?
+    - am I talking to a human?
+    - are you a bot?
+- intent: inform
+  examples: |
+    - I have a board [meeting](ACTIVITY) at [2pm](description_time)
+    - {time}
+    - [See Michelle](ACTIVITY)
+    - [Board meeting](ACTIVITY)
+    - [Meeting with Paul](ACTIVITY) at {description_time}{time}
+- intent: deny
+  examples: |
+    - no
+    - not really
+    - I don't think so
+    - n
+    - don't like that
+    - no way
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - of course
+    - absolutely
+    - Yes thanks
+    - indeed
+    - correct
+- intent: supply_name
+  examples: |
+    - [Drew](PERSON)
+    - [Rococo](PERSON)
+    - [Kitty Cat](PERSON)
+    - Jacob
+    - [David Wallace](PERSON)
+    - My name is Eric
+    - Robert
+- intent: request_activity_form
+  examples: |
+    - I would like to meet [Dan](ACTIVITY) at 4pm today
+    - I would like to go for a [pizza with Dan](ACTIVITY) at 5pm
+    - I am having a [pizza with Dan](ACTIVITY)
+    - I am going to meet [with Dan](ACTIVITY) at 5pm
+    - Yes, I have something planned.
+    - I am going to have a [pizza with dan](ACTIVITY) [at 5 pm](description_time)
+    - I have a board [meeting](ACTIVITY) [at 5 pm](description_time)
+    - [2 pm](description_time)
+- intent: goodbye
+  examples: |
+    - Thanks, bye
+    - bye
+    - see you later
+    - cu
+    - Bye
+    - good night
+    - bye bye
+    - cee you later
+    - no you dirty computer
+    - goodbye
+- intent: greet
+  examples: |
+    - good morning
+    - HI
+    - goodmorning
+    - good evening
+    - hey dude
+    - hello there
+    - let's go
+    - hey there
+    - Hi
+    - hi
+    - moin
+    - good afternoon
+- intent: mood_unhappy
+  examples: |
+    - I'm so sad
+    - not so good
+    - I am sad
+    - so sad
+    - not very good
+    - bad, why don't you work piece of shit
+    - sad
+    - not good
+    - very sad
+    - I am disappointed
+    - my day was horrible
+    - bad, my mom's dead
+    - super sad
+    - unhappy
+- intent: mood_great
+  examples: |
+    - I am going to save the world
+    - so good
+    - I am great
+    - Amazing
+    - wonderful
+    - great
+    - feeling like a king
+    - Very well thanks
+    - Great
+    - Great thanks
+    - perfect
+    - super stoked
+    - amazing
+    - I am feeling very good
+    - so so perfect

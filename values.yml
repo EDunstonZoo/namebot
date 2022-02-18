@@ -1,0 +1,24 @@
+
+# rasax specific settings
+rasax:
+  # initialUser is the user which is created upon the initial start of Rasa X
+  initialUser:
+    # password for this user (leave it empty to skip the user creation)
+    password: "password-for-demo"
+  # passwordSalt Rasa X uses to salt the user passwords
+  passwordSalt: "password-for-demo"
+  # token Rasa X accepts as authentication token from other Rasa services
+  token: "password-for-demo"
+  # jwtSecret which is used to sign the jwtTokens of the users
+  jwtSecret: "password-for-demo"
+# rasa: Settings common for all Rasa containers
+# deprecated: the Rasa OSS deployment is deprecated and will be removed in the feature
+# from this chart.
+# It's recommended to use the rasa helm chart instead.
+# see: https://github.com/RasaHQ/helm-charts/tree/main/charts/rasa#quick-start
+rasa:
+  tag: "3.0.0-full" 
+  # name of the Rasa image to use
+  # name: "ftw3036/rasa-demo"
+  token: "password-for-demo"
+

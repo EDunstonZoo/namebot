@@ -1,0 +1,36 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rasa-custom-model
+  labels:
+    app: rasa
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rasa
+  template:
+    metadata:
+      labels:
+        app: rasa
+    spec:
+      containers:
+      - name: rasa-demo
+        image: ftw3036/rasa-demo
+        ports:
+        - containerPort: 8080
+        command: ["rasa","run","--enable-api", "--port", "8080", "--debug"]
+---
+apiVersion: v1
+kind: Service
+metadata: 
+  name: rasa-web
+spec:
+  ports: 
+    - port: 8080
+      targetPort: 8080
+  selector:
+    app: rasa
+  type: LoadBalancer
+

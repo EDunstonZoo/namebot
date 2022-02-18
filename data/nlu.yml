@@ -121,6 +121,7 @@ nlu:
     - [2 pm](description_time)
     - I have a board [meeting](ACTIVITY) [at 5 pm](description_time)
     - I would like to meet [Dan](ACTIVITY) at 4pm today
+    - I would like to go for a [pizza with Dan](ACTIVITY) at 5pm
 - intent: inform
   examples: |
     - At {time}

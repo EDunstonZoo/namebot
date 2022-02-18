@@ -1,0 +1,44 @@
+version: "3.0"
+nlu:
+- intent: bot_challenge
+  examples: |
+    - are you a human?
+- intent: inform
+  examples: |
+    - At {time}
+- intent: deny
+  examples: |
+    - Nothing
+    - never
+- intent: affirm
+  examples: |
+    - Yes
+    - that sounds good
+- intent: supply_name
+  examples: |
+    - [Diego](PERSON)
+    - [Eric](PERSON)
+- intent: request_activity_form
+  examples: |
+    - Yes, I am having a [pizza with Dan](ACTIVITY) at {description_time}{time}.
+- intent: goodbye
+  examples: |
+    - see you around
+    - good by
+    - have a nice day
+- intent: greet
+  examples: |
+    - hey
+    - goodevening
+    - hello
+- intent: mood_unhappy
+  examples: |
+    - so saad
+    - I don't feel very well
+    - extremly sad
+- intent: mood_great
+  examples: |
+    - extremely good
+    - great thanks
+    - so perfect
+    - I am amazing

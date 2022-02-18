@@ -286,3 +286,43 @@ stories:
   - action: utter_ask_activity
   - intent: deny
   - action: utter_goodbye
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_ask_name
+  - intent: supply_name
+    entities:
+    - PERSON: Eric
+    - PERSON: Eric
+  - slot_was_set:
+    - name: Eric
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+  - intent: request_activity_form
+    entities:
+    - PERSON: Dan
+    - time: '2022-02-18T17:00:00.000+01:00'
+    - ACTIVITY: pizza with Dan
+  - slot_was_set:
+    - name: Dan
+  - slot_was_set:
+    - activity: pizza with Dan
+  - slot_was_set:
+    - time: '2022-02-18T17:00:00.000+01:00'
+  - action: activity_form
+  - active_loop: activity_form
+  - slot_was_set:
+    - time: '2022-02-18T17:00:00.000+01:00'
+  - slot_was_set:
+    - activity: pizza with Dan
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_get_description_time
+  - slot_was_set:
+    - description_time: Feb 18 2022 05:00PM
+  - action: utter_activity_slots
+  - intent: mood_great
+  - action: utter_happy

@@ -3,11 +3,11 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
-- request_activity_form
-- deny
-- mood_great
 - greet
 - supply_name
+- request_activity_form
+- mood_great
+- deny
 - affirm
 - inform
 - goodbye

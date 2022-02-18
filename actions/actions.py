@@ -53,11 +53,11 @@ class ActionSaveTimeDescription(Action):
            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
       time = tracker.get_slot('time')
-      time_object = dt.strptime(time, "%Y-%m-%dT%H:%M:%S.%f%z")
-      out_str = time_object.strftime('%b %d %Y %I:%M%p')
+      if time:
+        time_object = dt.strptime(time, "%Y-%m-%dT%H:%M:%S.%f%z")
+        out_str = time_object.strftime('%b %d %Y %I:%M%p')
 
-
-      return [SlotSet("description_time", out_str if out_str is not None else [])]
+        return [SlotSet("description_time", out_str if out_str is not None else [])]
 
 
 
